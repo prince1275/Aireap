@@ -1,0 +1,579 @@
+/* ==============================
+   GLOBAL STYLES
+   ============================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #f0f1f3;
+  width: 100%;
+  height: 100vh;
+}
+
+.fa-user,
+.fa-envelope,
+.fa-lock {
+  color: #616161 !important;
+}
+
+/* Reusable utility classes */
+.active {
+  transform: translateX(0px) !important;
+}
+.hide {
+  transform: translateX(400px) !important;
+}
+
+/* ==============================
+   MAIN CONTAINER
+   ============================== */
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-card {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+}
+
+/* ==============================
+   WELCOME LAYOUT
+   ============================== */
+.welcomeLayout {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+
+/* Decorative shape */
+.shape1 {
+  width: 200%;
+  height: 210%;
+  margin-top: -100px;
+  display: flex;
+  background-color: #333;
+  transform: rotate(-10deg);
+}
+
+/* Centered content */
+.normal-shape {
+  width: 100%;
+  height: 100%;
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.start:hover {
+  background-color: #f44336;
+}
+
+.stTxt {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Header / Hero text */
+.topContent {
+  width: 100%;
+  gap: 10px;
+  padding: 20px;
+  position: absolute;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.topContent h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.topContent span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.topContent p {
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+.topContent p::first-letter {
+  font-size: 14px !important;
+  font-weight: 500;
+  color: #f44336;
+}
+.fa-heart {
+  color: #f44336;
+}
+
+/* ==============================
+   SIGNUP LAYOUT
+   ============================== */
+.signupLayout {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+
+/* Signup header */
+.hero1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.hero1 h2 {
+  font-weight: 900;
+}
+.hero1 span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #616161;
+}
+
+/* Signup form */
+.signupForm {
+  width: 85%;
+  margin-top: 20px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input box */
+.inputBox {
+  width: 100%;
+  height: 35px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 7px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-left: 2px solid #2ec92f;
+}
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: #616161;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+/* Password strength bar */
+.bars {
+  width: 100%;
+  margin-top: 5px;
+}
+.checkStrength {
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fillStrength {
+  width: 0%;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.psText {
+  font-size: 11px;
+  font-weight: 500;
+  color: #616161;
+}
+
+/* Submit button */
+.formSbutton {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 0px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+/* Separator */
+.or {
+  width: 100%;
+  margin-top: 17px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.or hr {
+  width: 100%;
+  color: #333;
+}
+.or span {
+  position: absolute;
+  padding: 5px;
+  margin-bottom: 3px;
+  background-color: #f0f1f3;
+  color: #616161;
+}
+
+/* Social login */
+.socialSign {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.googleButton {
+  width: 190px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  overflow: hidden;
+}
+.googleButton img {
+  width: 40px;
+  height: 100%;
+  padding: 5px 10px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.035);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.gText {
+  position: relative;
+  left: 19px;
+}
+
+/* Links & consent text */
+.forLableBtn {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #333;
+}
+.forLableBtn a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #616161;
+  text-decoration: none;
+}
+.consetTextContainer {
+  width: 100%;
+  margin-top: 17px;
+  font-size: 12px;
+}
+.consetTextContainer span,
+.consetTextContainer a {
+  text-align: center;
+  color: #616161;
+}
+
+/* ==============================
+   LOGIN LAYOUT
+   ============================== */
+.loginLayout {
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+
+/* Login form */
+.loginForm {
+  width: 100%;
+  margin-top: 15px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.frPassword {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.forgotLabel {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #616161;
+}
+
+/* Login button */
+.btn {
+  width: 100%;
+  margin-top: 10px;
+}
+.LGbtn {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #333;
+  cursor: pointer;
+}
+.accountCreatelb {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ==============================
+   ACCOUNT RECOVERY LAYOUT
+   ============================== */
+.accoutRecoveryLayout {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+
+/* Back button */
+.back {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  padding: 6px;
+  font-size: 1rem;
+  color: #616161;
+}
+.backBtn {
+  padding: 5px;
+}
+
+/* Recovery form */
+.recoveryForm {
+  width: 100%;
+  margin-top: 20px;
+  gap: 30px;
+}
+.helper {
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #616161;
+}
+h2 {
+  color: #616161;
+}
+.fa-recycle {
+  color: #ff6f00;
+}
+.continue {
+  margin-top: 12px;
+}
+
+/* ==============================
+   OTP VERIFICATION LAYOUT
+   ============================== */
+.otpVerifyLayout {
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+.otpVerifyLayout span {
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #616161;
+}
+
+/* OTP input */
+.otpForm {
+  width: 100%;
+  margin-top: 20px;
+}
+.otpInputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.otpInputs input {
+  width: 35px;
+  height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  border: rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+.verify {
+  margin-top: 12px;
+}
+
+/* ==============================
+   CHANGE PASSWORD LAYOUT
+   ============================== */
+.changePasswordLayout {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  transform: translateX(400px);
+}
+.changePasswordLayout .p {
+  margin-top: 12px;
+  font-size: 12px;
+  text-align: center;
+  color: #616161;
+}
+.changePassForm {
+  width: 100%;
+  margin-top: 20px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fa-eye {
+  cursor: pointer;
+}
+
+/* ==============================
+   MODAL (Feedback Messages)
+   ============================== */
+.messageModal {
+  display: none; /* hidden by default */
+  width: 310px;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  text-align: center;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* Status icons */
+.statusIcon i {
+  display: none; /* hidden by default */
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+.successIcon {
+  color: #28a745;
+}
+.alertIcon {
+  color: #ffc107;
+}
+.errorIcon {
+  color: #dc3545;
+}
+
+/* Modal text */
+.msgTagline {
+  font-size: 14px;
+  color: #555;
+}
+.otpTxt {
+  font-size: 13px;
+  color: #616161;
+}
+#resendOtpLabel {
+  color: #0091ea;
+  cursor: pointer;
+  text-decoration: underline;
+}
