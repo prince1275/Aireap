@@ -1,29 +1,24 @@
-# Use official PHP image with Apache
+# Use an official PHP image
 FROM php:8.2-apache
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y git unzip curl
+
+# Enable commonly used PHP extensions
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Install dependencies and Composer safely
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git unzip curl && \
-    rm -rf /var/lib/apt/lists/* && \
-    curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer
-
-# Enable Apache modules
-RUN a2enmod rewrite
-
-# Copy project files
+# Copy your project files into the container
 COPY . /var/www/html/
 
-# Install PHP extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Install Composer and PHP dependencies
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer \
+    && composer install --no-dev --optimize-autoloader --ignore-platform-reqs || true
 
-# Install Composer dependencies (ignore platform warnings)
-RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs || true
-
-# Expose port 80 for Render
+# Expose the web port
 EXPOSE 80
 
 # Start Apache
